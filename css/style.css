@@ -1,0 +1,116 @@
+
+:root {
+    --blackish: #0d0d0d;
+    --dim-white: #f2f2f2;
+    --mid-aqua: #7abfbf;
+    --chill-aqua: rgba(122 191 191 / 0.5);
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    background-color: var(--chill-aqua);
+}
+
+body {
+    background-color: var(--dim-white);
+    max-width: 414px;
+    width: 70vw;
+    margin: 0 auto;
+    line-height: 1.5;
+    -webkit-font-smooting: antialiased;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+    overflow-wrap: break-word;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+nav a,
+nav span,
+menu li,
+#social-media li,
+footer {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+nav a,
+nav span,
+menu li,
+#social-media,
+footer {
+    font-size: 2rem;
+}
+
+p,
+dd,
+li,
+nav,
+input {
+    font-size: 1.6rem;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+/* Sections */
+h1 {
+    text-align: center;
+}
+
+header p {
+    margin: 3rem 1rem;
+}
+
+
+
+#side-dishes {
+    background-color: var(--mid-aqua);
+}
+
+#main-navigation {
+    background-color: white;
+}
