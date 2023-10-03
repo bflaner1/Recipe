@@ -7,6 +7,12 @@
     font-size: 62.5%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
 *,
 *::before,
 *::after {
