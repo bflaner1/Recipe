@@ -69,17 +69,12 @@ ol {
 
 dl {
     display: flex;
-    flex-flow: row wrap;
 }
 
 dt {
-    flex-basis: 25%;
+    padding-right: 1rem;
 }
 
-dd {
-    flex-basis: 75%;
-    flex-grow: 1;
-}
 
 /* TYPOGRAPHY */
 h1,
@@ -137,7 +132,7 @@ dt {
     width: 1px;
     height: 1px;
     padding: 0;
-    margin: -1;
+    margin: -1px;
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
@@ -163,12 +158,16 @@ menu {
     text-align: center;
 }
 
+menu a {
+    transition: background-color 0.3s, color 0.3s;
+}
+
 menu svg {
     margin: 0 auto;
 }
 
 li {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 li a:link,
@@ -215,6 +214,12 @@ section {
         "img title"
         "img desc"
         "img rating";
+    padding-block: 1rem;
+    transition: background-color 0.2s;
+}
+
+.side-dish-item:hover {
+    background-color: orange;
 }
 
 .dish-img {
@@ -231,7 +236,7 @@ section {
 
 .dish-rating {
     grid-area: rating;
-    font-weight: bold;;
+    font-weight: bold;
 }
 
 .stars {
@@ -254,9 +259,9 @@ section {
 .nav-wrap {
     background-color: white;
     grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    grid-row: 1 / -1;
     display: grid;
-    grid-template-columns: subgrid;
+    grid-template-columns: 1fr 2fr 1fr;
     box-shadow: 0 2px 3px rgba(0 0 0 / 0.3);
 }
 
@@ -298,6 +303,7 @@ input[type="checkbox"]:checked ~ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-menu li:first-child {
@@ -315,7 +321,6 @@ input[type="checkbox"]:checked ~ ul {
 }
 
 .nav-menu img {
-    width: 20%;
     display: none;
 }
 
@@ -323,7 +328,7 @@ input[type="checkbox"]:checked ~ ul {
     position: absolute;
     top: 11rem;
     left: 50%;
-    translate: -50%;
+    transform: translateX(-50%);
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     justify-self: center;
@@ -345,8 +350,8 @@ input[type="checkbox"]:checked ~ ul {
 
 .icon-tabler-search {
     background-color: var(--burnt-orange);
-    width: 5rem;
-    height: 4rem;
+    min-width: 5rem;
+    min-height: 4rem;
 }
 
 footer {
@@ -363,9 +368,15 @@ footer {
     margin-bottom: -0.5rem;
 }
 
+menu a:hover,
+.nav-menu li:not(:last-child) a:hover {
+    background-color: var(--burnt-orange);
+    color: white;
+}
+
 #copyright {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     margin-top: 0;
 }
@@ -379,4 +390,230 @@ footer {
 #copyright img {
     width: 50%;
     padding-block: 2rem;
+}
+
+/* Media Queries */
+@media (min-width: 800px) {
+    body {
+        width: 768px;
+    }
+
+    label,
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    #main-navigation {
+        width: 768px;
+        grid-template-columns: 768px;
+        grid-template-rows: 8rem 9rem;
+    }
+
+    .nav-wrap {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+    }
+
+    .nav-menu {
+        overflow: unset;
+        max-height: 17rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+        grid-column: 1 / -1;
+    }
+
+    .nav-menu li:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8rem;
+    }
+
+    .nav-menu li {
+        margin-bottom: 0;
+    }
+
+    .nav-menu img {
+        width: 40%;
+        display: block;
+    }
+
+    #search {
+        position: fixed;
+        z-index: 1;
+        top: 1.5rem;
+        transform: translateX(-5%);
+    }
+
+    header {
+        padding-top: 18rem
+    }
+
+    h1 {
+        text-align: left;
+        margin-left: 1rem;
+        padding-block: 0.5rem;
+    }
+
+    header menu {
+        background-color: rgba(255 255 255 / 0.7);
+        position: absolute;
+        width: 768px;
+        height: 10rem;
+        align-items: center;
+    }
+
+    header menu li {
+        margin: 0;
+    }
+
+    dt {
+        flex-basis: 50%;
+        display: inline-grid;
+        justify-content: end;
+        padding-right: 0.5rem;
+    }
+
+    dd {
+        flex-basis: 50%;
+        padding-left: 0.5rem;
+    }
+
+    .ingredients-directions-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .side-dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer {
+        padding-top: 0;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #social-media,
+    #copyright {
+        flex-basis: 50%;
+        padding-block: 3rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    body {
+        width: 1280px;
+    }
+
+    #main-navigation {
+        width: 1280px;
+        grid-template-columns: 1280px;
+        grid-template-rows: 12rem;
+    }
+
+    .nav-menu {
+        width: 1000px;
+        max-height: 12rem;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .nav-menu li:first-child {
+        height: 12rem;
+        width: 10rem;
+    }
+
+    .nav-menu li a {
+        height: 12rem;
+    }
+
+    #search {
+        position: absolute;
+        top: 15rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+        padding-block: 2rem 1rem;
+    }
+
+    .header-content-wrap {
+        display: grid;
+        grid-template-columns: 1fr 4fr 6fr;
+        grid-template-rows: 1fr;
+    }
+
+    header menu {
+        background-color: white;
+        position: relative;
+        flex-direction: column;
+        border: 1px solid var(--burnt-orange);
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+    }
+
+    header menu li {
+        padding-block: 2rem;
+    }
+
+    .header-paras {
+        line-height: 2;
+    }
+
+    #details {
+        background-color: var(--blackish);
+        color: var(--mid-aqua);
+    }
+
+    .details-list {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    dl {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-dish-grid {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 3rem;
+    }
+
+    .side-dish-item {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr repeat(3, 0.5fr);
+        grid-template-areas:
+            "img"
+            "title"
+            "desc"
+            "rating";
+        padding-left: 3rem;
+    }
+
+    .dish-rating {
+        display: flex;
+        gap: 1rem;
+        font-weight: bold;
+    }
+
+    #copyright {
+        flex-direction: row-reverse;
+        justify-content: start;
+        align-items: start;
+        gap: 1rem;
+        padding: 8rem;
+    }
+
+    .copyright-text {
+        padding-top: 3rem;
+    }
 }
