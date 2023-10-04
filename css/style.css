@@ -26,6 +26,7 @@
 
 *::selection {
     background-color: #e97e5e;
+    color: var(--blackish);
 }
 
 html {
